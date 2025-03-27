@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Application</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../src/todo.js"></script>
+
+
+
+</head>
+
+<body class="container-fluid">
+    <header>
+        <nav>
+            <span>TaskTrack</span>
+        </nav>
+    </header>
+    <main id="main">
+        <div id="con">
+
+        </div>
+    </main>
+
+    <div class="modal fade" id="modal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="fs-3 fw-bold">
+                        Add New Appointment
+                    </span>
+                    <button class="btn btn-close" id="modalClose" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>Enter Appointment Id </dt>
+                        <dd><input class="form-control" type="number" name="AppointmentId" id="txtAId"></dd>
+                        <span id="error-msg"></span>
+                        <dt>Enter Title </dt>
+                        <dd><input class="form-control" type="text" name="AppointmentTitle" id="txtATitle"></dd>
+                        <dt>Enter Description </dt>
+                        <dd><input class="form-control" type="text" name="AppointmentDes" id="txtADes"></dd>
+                        <dt>Enter Date </dt>
+                        <dd><input class="form-control" type="datetime-local" name="AppointmentDate" id="txtADate"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" id="saveAppointment" data-bs-dismiss="modal">Save</button>
+                    <button class="btn btn-success" id="saveEdit" data-bs-dismiss="modal">Save Edit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
