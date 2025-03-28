@@ -40,7 +40,7 @@ function LoadView(url, callback) {
   })
 }
 $(document).on("click", "#btnCreateAccount", () => {
-  $.cookie("pageName", `../public/user-register.html`);
+  $.cookie("pageName", `user-register.html`);
   LoadView($.cookie("pageName"), () => {
     $.cookie("view", "container");
     $("#con").attr("class", $.cookie("view"));
@@ -49,7 +49,7 @@ $(document).on("click", "#btnCreateAccount", () => {
 })
 $(document).on("click", "#btnCancel", () => {
 
-  $.cookie("pageName", `../public/home.html`);
+  $.cookie("pageName", `home.html`);
   LoadView($.cookie("pageName"), () => {
     $.cookie("view", "container");
     $("#con").attr("class", $.cookie("view"));
@@ -59,7 +59,7 @@ $(document).on("click", "#btnCancel", () => {
 $(document).on("click", "#btnSignin", () => {
 
 
-  $.cookie("pageName", `../public/user-login.html`);
+  $.cookie("pageName", `user-login.html`);
   const pagePath = decodeURIComponent($.cookie("pageName"));
   LoadView(pagePath, () => {
     $.cookie("view", "container");
@@ -102,7 +102,7 @@ $(document).on("click", "#btnRegister", () => {
       success: () => {
 
         alert("Registered Successfully...");
-        $.cookie("pageName", "../public/user-login.html");
+        $.cookie("pageName", "user-login.html");
         LoadView($.cookie("pageName"), () => {
           $.cookie("view", "container");
           $("#con").attr("class", $.cookie("view"));
@@ -182,7 +182,7 @@ $(document).on("click", "#btnLogin", () => {
 
 
         $("#main").addClass("blur");
-        $.cookie("pageName", "../public/dashboard.html");
+        $.cookie("pageName", "dashboard.html");
         LoadView($.cookie("pageName"), () => {
           $.cookie("view", "dashboard-view");
           $("#con").attr("class", $.cookie("view"));
@@ -315,7 +315,7 @@ $(document).on("click", "#btnLogout", () => {
   $.removeCookie("userid");
   $.removeCookie("username");
 
-  $.cookie("pageName", "../public/home.html");
+  $.cookie("pageName", "home.html");
   LoadView($.cookie("pageName"), () => {
     $.cookie("view", "container");
     $("#con").attr("class", $.cookie("view"));
@@ -452,7 +452,7 @@ $(document).on("click",".btnDelete",(e)=>{
 
 $(() => {
   if ($.cookie("FirstVisit") == undefined) {
-    $.cookie("pageName", "../public/home.html");
+    $.cookie("pageName", "home.html");
     $.cookie("FirstVisit", "false");
     LoadView($.cookie("pageName"), () => {
       $.cookie("view", "container");
@@ -466,7 +466,7 @@ $(() => {
     });
   }
 
-  if($.cookie("pageName")=="../public/dashboard.html"){
+  if($.cookie("pageName")=="dashboard.html"){
     RenderAppointments($.cookie("userid"));
   }
 
