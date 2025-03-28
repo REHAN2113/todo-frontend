@@ -7,7 +7,7 @@ function users() {
 
   $.ajax({
     method: "get",
-    url: `${process.env.API_URL}/users`,
+    url: `${API_URL}/users`,
     success: (users) => {
       AllUsers = users;
 
@@ -97,7 +97,7 @@ $(document).on("click", "#btnRegister", () => {
     $.ajax({
 
       method: "post",
-      url: `${process.env.API_URL}/register-user`,
+      url: `${API_URL}/register-user`,
       data: user,
       success: () => {
 
@@ -148,7 +148,7 @@ $(document).on("click", "#btnLogin", () => {
   $.ajax({
 
     method: "get",
-    url: `${process.env.API_URL}/users`,
+    url: `${API_URL}/users`,
     success: (users) => {
 
 
@@ -221,7 +221,7 @@ function RenderAppointments(userid) {
   $("#dashboard-body").html("");
   $.ajax({
     method: "get",
-    url: `${process.env.API_URL}/get-appointments/${userid}`,
+    url: `${API_URL}/get-appointments/${userid}`,
     success: (appointments) => {
 
 
@@ -295,7 +295,7 @@ function addAppointment(appointment) {
 
   $.ajax({
     method: "post",
-    url: `${process.env.API_URL}/add-appointment`,
+    url: `${API_URL}/add-appointment`,
     data: appointment,
     success: () => {
       alert("Appointment Added");
@@ -329,7 +329,7 @@ $(document).on("keyup", "#txtAId", () => {
   var isTaken;
   $.ajax({
     method: "get",
-    url: `${process.env.API_URL}/get-appointments/${$.cookie("userid")}`,
+    url: `${API_URL}/get-appointments/${$.cookie("userid")}`,
     success: (appointments) => {
 
       isTaken = appointments.some((appointment) => appointment.AppointmentId == AId);
@@ -359,7 +359,7 @@ $(document).on("click", ".editBtn", (e) => {
   $.ajax({
     method: "get",
 
-    url: `${process.env.API_URL}/get-appointment/${$.cookie("userid")}/${id}`,
+    url: `${API_URL}/get-appointment/${$.cookie("userid")}/${id}`,
     success: (appointment) => {
 
       console.log(appointment);
@@ -403,7 +403,7 @@ $(document).on("click", "#saveEdit", () => {
 
     $.ajax({
       method: "put",
-      url: `${process.env.API_URL}/edit-appointment/${$.cookie("userid")}/${appointment.AppointmentId}`,
+      url: `${API_URL}/edit-appointment/${$.cookie("userid")}/${appointment.AppointmentId}`,
       data: appointment,
       success: () => {
 
@@ -436,7 +436,7 @@ $(document).on("click",".btnDelete",(e)=>{
   $.ajax({
   
    method:"delete",
-   url:`${process.env.API_URL}/delete-appointment/${$.cookie("userid")}/${id}`,
+   url:`${API_URL}/delete-appointment/${$.cookie("userid")}/${id}`,
    success:()=>{
      alert("Apointment Deleted");
      RenderAppointments($.cookie("userid"));
