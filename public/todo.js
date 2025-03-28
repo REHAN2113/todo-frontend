@@ -1,4 +1,4 @@
-
+var BASE_URL="https://todo-backend-43ux.onrender.com";
 
 var AllUsers = [];
 var isTaken;
@@ -7,7 +7,7 @@ function users() {
 
   $.ajax({
     method: "get",
-    url: `${API_URL}/users`,
+    url: `${BASE_URL}/users`,
     success: (users) => {
       AllUsers = users;
 
@@ -97,7 +97,7 @@ $(document).on("click", "#btnRegister", () => {
     $.ajax({
 
       method: "post",
-      url: `${API_URL}/register-user`,
+      url: `${BASE_URL}/register-user`,
       data: user,
       success: () => {
 
@@ -148,7 +148,7 @@ $(document).on("click", "#btnLogin", () => {
   $.ajax({
 
     method: "get",
-    url: `${API_URL}/users`,
+    url: `${BASE_URL}/users`,
     success: (users) => {
 
 
@@ -221,7 +221,7 @@ function RenderAppointments(userid) {
   $("#dashboard-body").html("");
   $.ajax({
     method: "get",
-    url: `${API_URL}/get-appointments/${userid}`,
+    url: `${BASE_URL}/get-appointments/${userid}`,
     success: (appointments) => {
 
 
@@ -295,7 +295,7 @@ function addAppointment(appointment) {
 
   $.ajax({
     method: "post",
-    url: `${API_URL}/add-appointment`,
+    url: `${BASE_URL}/add-appointment`,
     data: appointment,
     success: () => {
       alert("Appointment Added");
@@ -329,7 +329,7 @@ $(document).on("keyup", "#txtAId", () => {
   var isTaken;
   $.ajax({
     method: "get",
-    url: `${API_URL}/get-appointments/${$.cookie("userid")}`,
+    url: `${BASE_URL}/get-appointments/${$.cookie("userid")}`,
     success: (appointments) => {
 
       isTaken = appointments.some((appointment) => appointment.AppointmentId == AId);
@@ -359,7 +359,7 @@ $(document).on("click", ".editBtn", (e) => {
   $.ajax({
     method: "get",
 
-    url: `${API_URL}/get-appointment/${$.cookie("userid")}/${id}`,
+    url: `${BASE_URL}/get-appointment/${$.cookie("userid")}/${id}`,
     success: (appointment) => {
 
       console.log(appointment);
@@ -403,7 +403,7 @@ $(document).on("click", "#saveEdit", () => {
 
     $.ajax({
       method: "put",
-      url: `${API_URL}/edit-appointment/${$.cookie("userid")}/${appointment.AppointmentId}`,
+      url: `${BASE_URL}/edit-appointment/${$.cookie("userid")}/${appointment.AppointmentId}`,
       data: appointment,
       success: () => {
 
@@ -436,7 +436,7 @@ $(document).on("click",".btnDelete",(e)=>{
   $.ajax({
   
    method:"delete",
-   url:`${API_URL}/delete-appointment/${$.cookie("userid")}/${id}`,
+   url:`${BASE_URL}/delete-appointment/${$.cookie("userid")}/${id}`,
    success:()=>{
      alert("Apointment Deleted");
      RenderAppointments($.cookie("userid"));
@@ -451,7 +451,7 @@ $(document).on("click",".btnDelete",(e)=>{
 
 
 $(() => {
-  LoadView($.cookie("home.html"));
+  
   if ($.cookie("FirstVisit") == undefined) {
     $.cookie("pageName", "home.html");
     $.cookie("FirstVisit", "false");
