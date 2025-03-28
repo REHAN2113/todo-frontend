@@ -451,6 +451,7 @@ $(document).on("click",".btnDelete",(e)=>{
 
 
 $(() => {
+  LoadView($.cookie("home.html"));
   if ($.cookie("FirstVisit") == undefined) {
     $.cookie("pageName", "home.html");
     $.cookie("FirstVisit", "false");
